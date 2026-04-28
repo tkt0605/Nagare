@@ -1,5 +1,5 @@
 import { AuthForm } from "./_components/auth-form";
-
+import { SigninWithGoogle } from "./_components/oauth_form";
 export default function AuthPage() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-4 bg-gray-50">

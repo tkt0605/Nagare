@@ -2,7 +2,7 @@
 
 import { useActionState, useState } from "react";
 import { login, signup, type AuthResult } from "../actions";
-
+import { SigninWithGoogle } from "./oauth_form";
 type Tab = "login" | "signup";
 
 export function AuthForm() {
@@ -40,6 +40,7 @@ export function AuthForm() {
         <form action={loginAction} className="space-y-4">
           <Field label="メールアドレス" name="email" type="email" required />
           <Field label="パスワード" name="password" type="password" required />
+          <SigninWithGoogle />
           {loginState && "error" in loginState && (
             <ErrorMessage message={loginState.error} />
           )}
@@ -55,13 +56,7 @@ export function AuthForm() {
             type="password"
             required
           />
-          <Field
-            label="招待コード"
-            name="inviteCode"
-            placeholder="NAGARE-XXXX-XXXX"
-            required
-          />
-          {signupState && "error" in signupState && (
+{signupState && "error" in signupState && (
             <ErrorMessage message={signupState.error} />
           )}
           <SubmitButton pending={signupPending} label="登録する" />

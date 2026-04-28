@@ -21,14 +21,6 @@ export type FileItem = {
   profiles?: Profile;
 };
 
-export type InviteCode = {
-  id: string;
-  code: string;
-  used: boolean;
-  used_by: string | null;
-  created_at: string;
-};
-
 export type Database = {
   public: {
     Tables: {
@@ -44,16 +36,6 @@ export type Database = {
           created_at?: string;
         };
         Update: Partial<Omit<FileItem, "id" | "user_id" | "profiles">>;
-      };
-      invite_codes: {
-        Row: InviteCode;
-        Insert: Omit<InviteCode, "id" | "used" | "used_by" | "created_at"> & {
-          id?: string;
-          used?: boolean;
-          used_by?: string | null;
-          created_at?: string;
-        };
-        Update: Partial<Omit<InviteCode, "id">>;
       };
     };
   };
